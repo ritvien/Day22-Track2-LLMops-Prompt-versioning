@@ -6,18 +6,7 @@ Tài liệu này hướng dẫn từng bước chi tiết để hoàn thành lab
 
 ## Chuẩn bị (30 phút)
 
-### Bước 1 — Clone repo / tải code về
-
-Nếu giảng viên chia sẻ qua GitHub:
-
-```bash
-git clone https://github.com/<tên-repo>/day22-lab.git
-cd day22-lab/Lab
-```
-
-Nếu tải file zip, giải nén và mở thư mục `Lab/` trong terminal.
-
-### Bước 2 — Tạo virtual environment
+### Bước 1 — Tạo virtual environment
 
 Luôn dùng virtual environment để tránh xung đột gói giữa các dự án:
 
@@ -29,7 +18,7 @@ source venv/bin/activate        # macOS / Linux
 
 Sau khi kích hoạt, dấu nhắc terminal sẽ hiển thị `(venv)` ở đầu dòng.
 
-### Bước 3 — Cài thư viện
+### Bước 2 — Cài thư viện
 
 ```bash
 pip install -r requirements.txt
@@ -37,14 +26,14 @@ pip install -r requirements.txt
 
 > Quá trình này có thể mất 5–10 phút lần đầu. Trong lúc chờ, hãy thực hiện bước tiếp theo.
 
-### Bước 4 — Tạo tài khoản LangSmith và lấy API key
+### Bước 3 — Tạo tài khoản LangSmith và lấy API key
 
 1. Truy cập [smith.langchain.com](https://smith.langchain.com) và đăng ký tài khoản miễn phí.
 2. Vào **Settings** → **API Keys** → nhấn **Create API Key**.
 3. Sao chép key (bắt đầu bằng `lsv2_`) — bạn sẽ cần dùng ở bước tiếp theo.
 4. Tạo project mới tại **Projects** → **New Project**, đặt tên ví dụ `day22-lab`.
 
-### Bước 5 — Cấu hình tệp `.env`
+### Bước 4 — Cấu hình tệp `.env`
 
 Sao chép tệp mẫu:
 
@@ -82,7 +71,7 @@ Giải thích các biến quan trọng:
 - `LANGCHAIN_TRACING_V2`: Phải là `true` để bật tracing — đặt sai sẽ mất toàn bộ traces.
 - `PROVIDER`: Xác định LLM và embedding model nào được dùng trong toàn bộ lab.
 
-### Bước 6 — Chọn LLM provider và điền thông tin
+### Bước 5 — Chọn LLM provider và điền thông tin
 
 Chỉ cần điền thông tin cho provider bạn chọn, bỏ trống các provider còn lại:
 
@@ -92,7 +81,7 @@ Chỉ cần điền thông tin cho provider bạn chọn, bỏ trống các prov
 - **Ollama**: Chạy hoàn toàn offline. Cần cài [ollama.ai](https://ollama.ai) và pull model trước (`ollama pull llama3.2`).
 - **OpenRouter**: Tổng hợp nhiều model, có free tier cho một số model.
 
-### Bước 7 — Xác minh cài đặt
+### Bước 6 — Xác minh cài đặt
 
 ```bash
 cd src && python config.py
